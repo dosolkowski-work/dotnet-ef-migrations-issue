@@ -17,5 +17,8 @@ internal class MyTableConfiguration : IEntityTypeConfiguration<MyTable>
         // some stuff just to fill it in, these can be done with attributes
         builder.HasKey(t => t.Id);
         builder.Property(t => t.Name).HasMaxLength(128);
+
+        // now add an annotation that is not currently captured in a migration
+        builder.HasAnnotation("someKey", "some value");
     }
 }
